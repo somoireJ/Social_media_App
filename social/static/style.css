@@ -2,9 +2,9 @@
 
 /* Gradient Background */
 body {
-  background: linear-gradient(45deg, #F8B195, #F67280, #C06C84, #6C5B7B, #355C7D);
+  background-image: 'https://cdn.wallpapersafari.com/80/6/5dzJbi.jpg' ;
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+
 }
 
 @keyframes gradient {
