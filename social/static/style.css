@@ -1,0 +1,70 @@
+/* Import Bootstrap CSS */
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css');
+
+/* Set background image */
+body {
+  background-image: url('path/to/background-image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Add custom styles to navbar */
+.navbar {
+  background-color: transparent;
+  border: none;
+}
+
+.navbar-brand {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #ffcc00;
+}
+
+/* Style buttons */
+.btn-primary {
+  background-color: #ffcc00;
+  border-color: #ffcc00;
+  color: #ffffff;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #ffa500;
+  border-color: #ffa500;
+}
+
+/* Other custom styles */
+.container {
+  margin-top: 100px;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+p {
+  color: #ffffff;
+  font-size: 18px;
+}
+
+/* Add your own custom styles here */
+
+/* Bootstrap overrides */
+/* Override Bootstrap container width */
+.container {
+  max-width: 1200px;
+}

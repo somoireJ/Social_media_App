@@ -1,0 +1,16 @@
+<!-- login.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Login</h2>
+    <form method="post" action="{% url 'social:login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+            
+            <button type="submit">Login</button>   
+    </form>
+    <p>Don't have an account? <a href="{% url 'social:register' %}">Register</a></p>
+    <p>Forgot your password? <a href="{% url 'password_reset' %}">Reset Password</a></p>
+{% endblock %}
+<!-- <input type="hidden" name="next" value="{{ next }}"> -->

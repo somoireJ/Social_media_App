@@ -1,0 +1,18 @@
+<!-- recommended_profiles.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Recommended Profiles</h2>
+
+    {% if profiles %}
+        <ul>
+            {% for profile in profiles %}
+                <li>{{ profile.user.username }}</li>
+                <!-- Display recommended profile details -->
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No recommended profiles.</p>
+    {% endif %}
+{% endblock %}

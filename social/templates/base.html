@@ -1,0 +1,45 @@
+<!-- base.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media App</title>
+    <!-- Add your CSS stylesheets here -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <!-- Your header content here -->
+        <h1>Social Media App</h1>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="navigation">
+        <ul>
+            <li><a href="{% url 'social:register' %}">Home</a></li>
+
+            <!-- Add more navigation links as needed -->
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content">
+        <!-- Content specific to each template will be added here -->
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Your footer content here -->
+        <p>&copy; 2023 Social Media App. All rights reserved.</p>
+    </footer>
+
+    <!-- Add your JavaScript files here -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

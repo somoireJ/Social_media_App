@@ -1,0 +1,22 @@
+<!-- user_search.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>User Search</h2>
+
+    <form method="get" action="{% url 'social:user_search' %}">
+        <input type="text" name="query" placeholder="Search users...">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+        <h3>Search Results</h3>
+        <ul>
+            {% for user in results %}
+                <li>{{ user.username }}</li>
+                <!-- Display user details such as profile information -->
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

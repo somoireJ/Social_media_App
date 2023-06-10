@@ -1,0 +1,15 @@
+<!-- create_post.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Create New Post</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <textarea name="content" placeholder="Write your post..."></textarea>
+        <input type="file" name="image" accept="image/*">
+        <input type="file" name="video" accept="video/*">
+        <input type="text" name="tags" placeholder="Add tags (separated by commas)">
+        <button type="submit">Post</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,55 @@
+<!-- post_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ post.user.username }}</h2>
+    <p>{{ post.content }}</p>
+    <!-- Display post details such as date, likes, comments, etc. -->
+
+    <div class="post-actions">
+        <!-- Like post -->
+        <form method="post" action="{% url 'social:like_post' post.id %}">
+            {% csrf_token %}
+            <button type="submit">Like</button>
+        </form>
+
+        <!-- Dislike post -->
+        <form method="post" action="{% url 'social:dislike_post' post.id %}">
+            {% csrf_token %}
+            <button type="submit">Dislike</button>
+        </form>
+
+        <!-- Add comment -->
+        <form method="post" action="{% url 'social:add_comment' post.id %}">
+            {% csrf_token %}
+            <input type="text" name="comment" placeholder="Add a comment...">
+            <button type="submit">Comment</button>
+        </form>
+    </div>
+
+    <!-- Display comments -->
+    <div class="comments">
+        {% for comment in post.comments.all %}
+            <div class="comment">
+                <h4>{{ comment.user.username }}</h4>
+                <p>{{ comment.content }}</p>
+                <!-- Display comment details such as date, likes, etc. -->
+
+                <!-- Like comment -->
+                <form method="post" action="{% url 'social:like_comment' comment.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Like</button>
+                </form>
+
+                <!-- Dislike comment -->
+                <form method="post" action="{% url 'social:dislike_comment' comment.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Dislike</button>
+                </form>
+            </div>
+        {% empty %}
+            <p>No comments yet.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

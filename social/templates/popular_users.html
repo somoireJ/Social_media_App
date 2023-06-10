@@ -1,0 +1,18 @@
+<!-- popular_users.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Popular Users</h2>
+
+    {% if users %}
+        <ul>
+            {% for user in users %}
+                <li>{{ user.username }}</li>
+                <!-- Display popular user details -->
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No popular users.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+<!-- profile_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>User Profile</h2>
+    <div class="profile-info">
+        <img src="{{ profile.profile_picture.url }}" alt="{{ profile.user.username }}'s Profile Picture">
+        <h3>{{ profile.user.username }}</h3>
+        <p>{{ profile.bio }}</p>
+        <!-- Display other profile details such as name, location, etc. -->
+    </div>
+
+    <h3>Posts</h3>
+    {% for post in posts %}
+        <!-- Display user's posts -->
+        <div class="post">
+            <p>{{ post.content }}</p>
+            <!-- Display post details such as date, likes, comments, etc. -->
+        </div>
+    {% empty %}
+        <p>No posts found.</p>
+    {% endfor %}
+
+    <h3>Followers: {{ profile.followers_count }}</h3>
+    <!-- Display list of followers -->
+
+    <h3>Following: {{ profile.following_count }}</h3>
+    <!-- Display list of users followed by the profile user -->
+{% endblock %}
