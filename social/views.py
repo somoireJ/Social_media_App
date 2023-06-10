@@ -17,9 +17,10 @@ from django.contrib.auth import authenticate, login, logout
 
 @login_required
 def feed(request):
-    # Retrieve posts from users the authenticated user follows
+    # Retrieve posts from users the authenticated user follows and the authenticated user itself
     followed_users = request.user.profile.following.all()
-    posts = Post.objects.filter(user__profile__user__in=followed_users).order_by('-created_at')
+    posts = Post.objects.filter(user__profile__user__in=followed_users) | Post.objects.filter(user=request.user)
+    posts = posts.order_by('-created_at')
 
     if request.method == 'POST':
         # Handle post form submission
@@ -34,6 +35,7 @@ def feed(request):
 
     context = {'posts': posts, 'form': form}
     return render(request, 'feed.html', context)
+
 
 
 
@@ -105,7 +107,8 @@ def profile(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     followed_users = request.user.profile.following.all()
     context = {'user': user, 'followed_users': followed_users}
-    return render(request, 'profile_detail.html', {'user': user})
+    # return render(request, 'profile_detail.html', {'user': user})
+    return render(request, 'post_detail.html',{'user': user, 'profile': user.profile, 'bio': user.profile.bio})
 
 @login_required
 def edit_profile(request):
@@ -195,6 +198,23 @@ def notification(request):
 
     context = {'notifications': notifications}
     return render(request, 'notification.html', context)
+
+from django.shortcuts import redirect, get_object_or_404
+from .models import Post
+
+def like_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+
+    # Check if the user has already liked the post
+    if request.user in post.likes.all():
+        # User has already liked the post, remove the like
+        post.likes.remove(request.user)
+    else:
+        # User has not liked the post, add the like
+        post.likes.add(request.user)
+
+    return redirect('post_detail', post_id=post.id)
+
 
 
 class UserAPIView(APIView):

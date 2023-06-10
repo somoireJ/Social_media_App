@@ -1,0 +1,12 @@
+<!-- delete_post.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Delete Post</h2>
+    <form method="post" action="{% url 'social:delete_post' post.id %}">
+        {% csrf_token %}
+        <p>Are you sure you want to delete this post?</p>
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'social:feed' %}">Cancel</a>
+{% endblock %}

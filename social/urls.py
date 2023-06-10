@@ -4,7 +4,7 @@ from . import views
 app_name = 'social'
 
 urlpatterns = [
-    path('feed/', views.feed , name='feed'),
+    path('feed/', views.feed, name='feed'),
     path('register/', views.register, name='register'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
@@ -17,5 +17,6 @@ urlpatterns = [
     path('post/<int:post_id>/comment/', views.add_comment, name='add_comment'),
     path('user/search/', views.user_search, name='user_search'),
     path('notification/', views.notification, name='notification'),
+    path('post/<int:post_id>/like/', views.like_post, name='like_post'),
     path('api/users/', views.UserAPIView.as_view(), name='user_api'),
 ]

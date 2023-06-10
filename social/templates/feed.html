@@ -19,26 +19,11 @@
             <h3>{{ post.user.email }}</h3>
             <p>{{ post.content }}</p>
             <!-- Display post details such as date, likes, comments, etc. -->
-
             <div class="post-actions">
-                <!-- Like post -->
-                <form method="post" action="{% url 'social:like_post' post.id %}">
-                    {% csrf_token %}
-                    <button type="submit">Like</button>
-                </form>
+                
 
-                <!-- Comment on post -->
-                <form method="post" action="{% url 'social:comment_post' post.id %}">
-                    {% csrf_token %}
-                    <input type="text" name="comment" placeholder="Add a comment...">
-                    <button type="submit">Comment</button>
-                </form>
 
-                <!-- Share post -->
-                <form method="post" action="{% url 'social:share_post' post.id %}">
-                    {% csrf_token %}
-                    <button type="submit">Share</button>
-                </form>
+            
 
                 {% if post.user == request.user %}
                     <!-- Edit post -->
@@ -58,3 +43,18 @@
         <p>No posts found.</p>
     {% endfor %}
 {% endblock %}
+
+
+
+                <!-- Like post -->
+                <!-- <form method="post" action="{% url 'social:like_post' post.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Like</button>
+                </form> -->
+
+                <!-- Comment on post -->
+                <!-- <form method="post" action="{% url 'social:create_comment' post.id %}">
+                    {% csrf_token %}
+                    <input type="text" name="comment" placeholder="Add a comment...">
+                    <button type="submit">Comment</button>
+                </form> -->

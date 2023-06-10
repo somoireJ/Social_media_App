@@ -9,23 +9,13 @@
 
     <div class="post-actions">
         <!-- Like post -->
-        <form method="post" action="{% url 'social:like_post' post.id %}">
-            {% csrf_token %}
-            <button type="submit">Like</button>
-        </form>
+       
+        
 
-        <!-- Dislike post -->
-        <form method="post" action="{% url 'social:dislike_post' post.id %}">
-            {% csrf_token %}
-            <button type="submit">Dislike</button>
-        </form>
+
 
         <!-- Add comment -->
-        <form method="post" action="{% url 'social:add_comment' post.id %}">
-            {% csrf_token %}
-            <input type="text" name="comment" placeholder="Add a comment...">
-            <button type="submit">Comment</button>
-        </form>
+
     </div>
 
     <!-- Display comments -->
@@ -37,15 +27,7 @@
                 <!-- Display comment details such as date, likes, etc. -->
 
                 <!-- Like comment -->
-                <form method="post" action="{% url 'social:like_comment' comment.id %}">
-                    {% csrf_token %}
-                    <button type="submit">Like</button>
-                </form>
 
-                <!-- Dislike comment -->
-                <form method="post" action="{% url 'social:dislike_comment' comment.id %}">
-                    {% csrf_token %}
-                    <button type="submit">Dislike</button>
                 </form>
             </div>
         {% empty %}
@@ -53,3 +35,29 @@
         {% endfor %}
     </div>
 {% endblock %}
+
+
+<!-- <form method="post" action="{% url 'social:add_comment' post.id %}">
+    {% csrf_token %}
+    <input type="text" name="comment" placeholder="Add a comment...">
+    <button type="submit">Comment</button>
+</form> -->
+
+<!-- 
+
+<form method="post" action="{% url 'social:like_comment' comment.id %}">
+    {% csrf_token %}
+    <button type="submit">Like</button>
+</form>
+
+Dislike comment -->
+<!-- <form method="post" action="{% url 'social:dislike_comment' comment.id %}">
+    {% csrf_token %}
+    <button type="submit">Dislike</button> -->
+
+
+        <!-- Dislike post -->
+        <!-- <form method="post" action="{% url 'social:dislike_post' post.id %}">
+            {% csrf_token %}
+            <button type="submit">Dislike</button>
+        </form> -->

@@ -1,0 +1,12 @@
+<!-- like_post.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Like Post</h2>
+    <form method="post" action="{% url 'social:like_post' post.id %}">
+        {% csrf_token %}
+        <p>Are you sure you want to like this post?</p>
+        <button type="submit">Like</button>
+    </form>
+    <a href="{% url 'social:feed' %}">Cancel</a>
+{% endblock %}
