@@ -37,8 +37,9 @@
                         {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'social:profile' user_id=request.user.id %}">My Profile</a>
+                        <a class="nav-link" href="{% if user.is_authenticated %}{% url 'social:profile' user_id=request.user.id %}{% else %}{% url 'social:login' %}{% endif %}">My Profile</a>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'social:create_post' %}">Create Post</a>
                     </li>

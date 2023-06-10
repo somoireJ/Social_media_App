@@ -27,4 +27,8 @@
 
     <h3>Following: {{ profile.following_count }}</h3>
     <!-- Display list of users followed by the profile user -->
+
+    <!-- Edit Profile Button -->
+    <a href="{% url 'social:profile_edit' %}" class="btn btn-primary">profile_edit</a>
+
 {% endblock %}

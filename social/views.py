@@ -12,9 +12,7 @@ from .serializers import UserSerializer
 from .forms import UserLoginForm
 from .models import User, Post, Comment, Profile
 from .forms import ProfileForm
-from django.contrib.auth import authenticate, login
-
-
+from django.contrib.auth import authenticate, login, logout
 
 
 @login_required
@@ -22,7 +20,6 @@ def feed(request):
     # Retrieve posts from users the authenticated user follows
     followed_users = request.user.profile.following.all()
     posts = Post.objects.filter(user__profile__user__in=followed_users).order_by('-created_at')
-
 
     if request.method == 'POST':
         # Handle post form submission
@@ -37,7 +34,6 @@ def feed(request):
 
     context = {'posts': posts, 'form': form}
     return render(request, 'feed.html', context)
-
 
 
 
@@ -118,7 +114,7 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully.')
-            return redirect('social:profile', user_id=request.user.id)
+            return redirect('social:profile_detail', user_id=request.user.id)
     else:
         form = ProfileForm(instance=request.user.profile)
     return render(request, 'profile_edit.html', {'form': form})
@@ -182,10 +178,15 @@ def add_comment(request, post_id):
 @login_required
 def user_search(request):
     query = request.GET.get('query')
-    results = User.objects.filter(username__icontains=query)
+
+    if query:
+        results = User.objects.filter(username__icontains=query)
+    else:
+        results = []
 
     context = {'results': results}
     return render(request, 'user_search.html', context)
+
 
 @login_required
 def notification(request):
