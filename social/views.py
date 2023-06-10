@@ -109,7 +109,7 @@ def profile(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     followed_users = request.user.profile.following.all()
     context = {'user': user, 'followed_users': followed_users}
-    return render(request, 'profile.html', {'user': user})
+    return render(request, 'profile_detail.html', {'user': user})
 
 @login_required
 def edit_profile(request):

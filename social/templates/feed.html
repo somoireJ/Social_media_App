@@ -8,14 +8,10 @@
             <li>
                 {% if user.is_authenticated %}
                     <a href="{% url 'social:logout' %}">Logout</a>
-                {% else %}
-                    <a href="{% url 'social:login' %}">Login</a>
+
                 {% endif %}
             </li>
-            <li><a href="{% url 'social:profile' user_id=request.user.id %}">My Profile</a></li>
-            <li><a href="{% url 'social:create_post' %}">Create Post</a></li>
-            <li><a href="{% url 'social:user_search' %}">User Search</a></li>
-            <!-- Add more navigation links as needed -->
+
         </ul>
     </nav>
     {% for post in posts %}
