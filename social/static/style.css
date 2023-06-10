@@ -1,70 +1,147 @@
-/* Import Bootstrap CSS */
-@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css');
+/* style.css */
 
-/* Set background image */
+/* Gradient Background */
 body {
-  background-image: url('path/to/background-image.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: linear-gradient(45deg, #F8B195, #F67280, #C06C84, #6C5B7B, #355C7D);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
-/* Add custom styles to navbar */
-.navbar {
-  background-color: transparent;
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+/* Card Styling */
+.card {
   border: none;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-.navbar-brand {
-  color: #ffffff;
-  font-size: 24px;
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 18px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.nav-link {
-  color: #ffffff;
-  font-size: 16px;
+.card-text {
+  margin-bottom: 20px;
+}
+
+.card-footer {
+  background-color: #fff;
+  padding: 10px 20px;
+}
+
+/* Button Styling */
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
-.nav-link:hover {
-  color: #ffcc00;
-}
-
-/* Style buttons */
 .btn-primary {
-  background-color: #ffcc00;
-  border-color: #ffcc00;
-  color: #ffffff;
-  font-weight: bold;
-  transition: background-color 0.3s;
+  background-color: #405DE6;
+  border-color: #405DE6;
+  color: #fff;
 }
 
 .btn-primary:hover {
-  background-color: #ffa500;
-  border-color: #ffa500;
+  background-color: #364FC7;
+  border-color: #364FC7;
 }
 
-/* Other custom styles */
-.container {
-  margin-top: 100px;
+/* Input Group Styling */
+.input-group {
+  margin-top: 10px;
 }
 
-h1 {
-  color: #ffffff;
-  font-size: 48px;
+.input-group input {
+  border-radius: 4px;
+}
+
+.input-group-append {
+  display: flex;
+  align-items: center;
+  margin-left: -1px;
+}
+
+/* Navigation Styling */
+.navigation {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation li {
+  margin-right: 10px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Additional Styling */
+h2 {
+  color: #fff;
+  font-size: 24px;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
 p {
-  color: #ffffff;
-  font-size: 18px;
+  margin-bottom: 0;
 }
 
-/* Add your own custom styles here */
+.no-posts {
+  color: #fff;
+  font-size: 16px;
+  margin-top: 20px;
+}
 
-/* Bootstrap overrides */
-/* Override Bootstrap container width */
-.container {
-  max-width: 1200px;
+/* Media Query for Small Screens */
+@media (max-width: 576px) {
+  h2 {
+      font-size: 20px;
+  }
+
+  .card-body {
+      padding: 10px;
+  }
+
+  .card-title {
+      font-size: 16px;
+      margin-bottom: 5px;
+  }
+
+  .card-text {
+      margin-bottom: 10px;
+  }
+
+  .btn {
+      padding: 6px 12px;
+      font-size: 12px;
+  }
 }
