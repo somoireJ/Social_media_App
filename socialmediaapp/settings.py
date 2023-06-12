@@ -53,15 +53,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'socialmediaapp.wsgi.application'
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'capstoneweek3',
+#         'USER': 'root',
+#         'PASSWORD': 'SOMOIRE71',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
+# # RENDER DATABASE
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'capstoneweek3',
-        'USER': 'root',
-        'PASSWORD': 'SOMOIRE71',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+    'default': dj_database_url.parse('postgres://productiondatabase_0unm_user:YtQUADdtmCnhxPNSFPRQmxOj3OlgKue8@dpg-chegb8bhp8ubgo5rehc0-a.oregon-postgres.render.com/productiondatabase_0unm')
+    
 }
 
 AUTH_PASSWORD_VALIDATORS = [
