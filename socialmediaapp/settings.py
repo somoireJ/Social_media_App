@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'django-insecure-q4zfx_i-rd)1yj!7v)-ezpw94#c&%jsl_a1_%wxjx8#3l5o489'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -53,16 +53,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'socialmediaapp.wsgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'capstoneweek3',
-#         'USER': 'root',
-#         'PASSWORD': 'SOMOIRE71',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     }
-# }
+
 
 # # RENDER DATABASE
 import dj_database_url
