@@ -21,7 +21,7 @@ from rest_framework import routers, serializers, viewsets
 urlpatterns = [
     path('', include('social.urls')),
     path('admin/', admin.site.urls),
-    path('login/', include('django.contrib.auth.urls')),
+    # path('login/', include('django.contrib.auth.urls')),
 ]
 
 

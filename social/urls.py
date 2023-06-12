@@ -6,7 +6,7 @@ app_name = 'social'
 urlpatterns = [
     path('feed/', views.feed, name='feed'),
     path('register/', views.register, name='register'),
-    path('login/', views.login_view, name='login'),
+    path('', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('profile/<int:user_id>/', views.profile, name='profile'),
     path('profile/edit/', views.edit_profile, name='profile_edit'),
@@ -19,4 +19,5 @@ urlpatterns = [
     path('notification/', views.notification, name='notification'),
     path('post/<int:post_id>/like/', views.like_post, name='like_post'),
     path('api/users/', views.UserAPIView.as_view(), name='user_api'),
+    # path('password_reset/', views.password_reset_request, name='password_reset')
 ]
